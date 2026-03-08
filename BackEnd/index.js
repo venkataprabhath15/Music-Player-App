@@ -17,7 +17,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://music-player-app-black.vercel.app/",
+      "https://music-player-app-black.vercel.app",
     ],
     credentials: true,
   }),
