@@ -1,9 +1,9 @@
-import express from 'express';
-import dotenv from 'dotenv';
-import cors from 'cors';
-import connectDB from './config/connectDB.js';
-import router from './Routes/authRoutes.js';
-import songRouter from './Routes/songRoutes.js';
+import express from "express";
+import dotenv from "dotenv";
+import cors from "cors";
+import connectDB from "./config/connectDB.js";
+import router from "./Routes/authRoutes.js";
+import songRouter from "./Routes/songRoutes.js";
 
 dotenv.config(".env");
 const PORT = process.env.PORT || 5001;
@@ -13,10 +13,15 @@ app.use(express.json());
 
 connectDB();
 
-app.use(cors({
-    origin: ["http://localhost:5173", "https://music-player-app-black.vercel.app/"],
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://music-player-app-black.vercel.app/",
+    ],
     credentials: true,
-}))
+  }),
+);
 
 app.use("/api/auth", router);
 app.use("/api/songs", songRouter);
